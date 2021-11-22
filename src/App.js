@@ -24,7 +24,8 @@ const App = () => {
    */
   useEffect(() => {
     checkIfWalletIsConnected();
-  }, [setCurrentAccount]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const checkIfRinkebyChain = async () => {
     //make sure we have access to window.ethereum
