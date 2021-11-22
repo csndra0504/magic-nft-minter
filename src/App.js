@@ -24,7 +24,7 @@ const App = () => {
    */
   useEffect(() => {
     checkIfWalletIsConnected();
-  }, []);
+  }, [setCurrentAccount]);
 
   const checkIfRinkebyChain = async () => {
     //make sure we have access to window.ethereum
@@ -143,7 +143,7 @@ const App = () => {
     console.log('render link!', CONTRACT_ADDRESS, tokenID);
     const openSeaLink = OPENSEA_LINK+CONTRACT_ADDRESS+'/'+tokenID;
     return (
-      <p><a className="nft-link" href={openSeaLink} target="_blank">{openSeaLink}</a></p>
+      <p><a className="nft-link" href={openSeaLink} target="_blank" rel="noreferrer">{openSeaLink}</a></p>
     )
   };
 
@@ -167,7 +167,7 @@ const App = () => {
           <p className="sub-text">
             Each unique. Each beautiful. Discover your NFT today.
           </p>
-          <p className="nft-link">{totalMints}/{TOTAL_MINT_COUNT} Available NFTs Minted | <a href="https://testnets.opensea.io/collection/cassnft-g0bbqivlbu" target="_blank" className="nft-link">View Collection</a></p>
+          <p className="nft-link">{totalMints}/{TOTAL_MINT_COUNT} Available NFTs Minted | <a href="https://testnets.opensea.io/collection/cassnft-g0bbqivlbu" target="_blank" rel="noreferrer" className="nft-link">View Collection</a></p>
           {currentAccount === "" ? (
             renderNotConnectedContainer()
           ) : (
